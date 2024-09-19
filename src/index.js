@@ -1,6 +1,11 @@
 
-import HlsVideoFormat from './plugins/es.upv.paella.hlsVideoFormat';
 import HlsLiveVideoFormat from './plugins/es.upv.paella.hlsLiveVideoFormat';
+import HlsVideoFormat, {
+    HlsVideo,
+    getHlsSupport,
+    defaultHlsConfig,
+    HlsSupport
+} from './plugins/es.upv.paella.hlsVideoFormat';
 
 export default function getVideoPluginsContext() {
     return require.context("./plugins", true, /\.js/)
@@ -22,4 +27,12 @@ export const videoPlugins = [
 export const allPlugins = videoPlugins;
 
 export const HlsVideoFormatPlugin = HlsVideoFormat;
-export const HlsLiveVideoFormatPluginPlugin = HlsLiveVideoFormat;
+export const HlsLiveVideoFormatPlugin = HlsLiveVideoFormat;
+
+export const hlsTools = {
+    HlsVideo,
+    getHlsSupport,
+    defaultHlsConfig,
+    HlsSupport
+}
+

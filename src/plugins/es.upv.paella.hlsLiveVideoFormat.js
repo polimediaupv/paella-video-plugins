@@ -1,11 +1,12 @@
-//import Hls from 'hls.js';
-import Events, { triggerEvent } from '../core/Events';
-
 import { HlsVideo, getHlsSupport, HlsSupport, getHlsLib, defaultHlsConfig } from './es.upv.paella.hlsVideoFormat';
-import VideoPlugin from '../core/VideoPlugin';
-import VideoQualityItem from '../core/VideoQualityItem';
+import {
+    VideoPlugin,
+    VideoQualityItem,
+    triggerEvent,
+    Events
+} from 'paella-core';
 
-import PaellaCoreVideoFormats from './PaellaCoreVideoFormats';
+import VideoPluginsModule from './VideoPluginsModule';
 
 const loadHls = async (player, streamData, video, config, cors) => {
     const Hls = await getHlsLib();
@@ -115,7 +116,7 @@ export class HlsLiveVideo extends HlsVideo {
 
 export default class HlsLiveVideoFormat extends VideoPlugin {
     getPluginModuleInstance() {
-        return PaellaCoreVideoFormats.Get();
+        return VideoPluginsModule.Get();
     }
     
     get name() {

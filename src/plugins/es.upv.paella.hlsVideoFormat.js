@@ -1,10 +1,13 @@
-import { HtmlVideo } from './es.upv.paella.htmlVideoFormat';
-import VideoPlugin from '../core/VideoPlugin';
-import VideoQualityItem from '../core/VideoQualityItem';
-import AudioTrackData from "../core/AudioTrackData";
-import Events, { triggerEvent } from "../core/Events";
+import {
+    HtmlVideo,
+    VideoPlugin,
+    AudioTrackData,
+    VideoQualityItem,
+    Events,
+    triggerEvent
+} from 'paella-core';
 
-import PaellaCoreVideoFormats from "./PaellaCoreVideoFormats";
+import VideoPluginsModule from "./VideoPluginsModule";
 
 // import Hls from "hls.js";
 
@@ -480,7 +483,7 @@ export class HlsVideo extends HtmlVideo {
 
 export default class HlsVideoPlugin extends VideoPlugin {
     getPluginModuleInstance() {
-        return PaellaCoreVideoFormats.Get();
+        return VideoPluginsModule.Get();
     }
     
     get name() {
